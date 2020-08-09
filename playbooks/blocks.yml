@@ -1,0 +1,20 @@
+- hosts: localhost
+  tasks:
+    - name: Attempt and graceful roll back demo
+      block:
+        - debug:
+            msg: 'blocks 任务测试'
+        - name: 强制任务失败
+          command: /bin/false
+        - debug:
+            msg: '强制失败后无法执行'
+      rescue:
+        - debug:
+            msg: '捕获到错误,尝试修复'
+        - name: 强制失败
+          command: /bin/false
+        - debug:
+            msg: '强制失败后无法执行'
+      always:
+        - debug:
+            msg: "无论成功失败都会执行"

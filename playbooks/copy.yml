@@ -1,0 +1,6 @@
+- hosts: localhost
+  tasks:
+    - name: 参数 copy
+      copy:
+        src: /etc/hosts
+        dest: /tmp/

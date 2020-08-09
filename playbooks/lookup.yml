@@ -1,0 +1,38 @@
+- hosts: localhost
+  vars:
+    # 读取文件内容
+    - file_value: "{{ lookup('file', '/tmp/pm.txt').split('\n') }}"
+    # 定义字典变量
+    - dict_variable: {'a': 1, 'b': 2, 'c': 3}
+  tasks:
+    - debug:
+        msg: "file_value is {{ file_value }}"
+
+    # 从文件获取参数，忽略错误
+    - debug: msg="{{ lookup('file', '/idont_exist', errors='ignore') }}"
+
+    - name: lookup_dict 测试
+      debug:
+        msg: '数据： {{ item.key }} - {{ item.value }}'
+      with_items:
+        - "{{lookup('dict', dict_variable, wantlist=True)}}"
+
+    - name: 读取当前目录 yml 文件列表
+      debug:
+        msg: "{{ lookup('fileglob', './*yml') }}"
+
+    - name: 读取环境变量
+      debug:
+        msg: "{{ lookup('env', 'PWD') }}"
+
+    - name: 随机变量
+      debug:
+        msg: "{{ item }}"
+      # 从 file_value 变量中随机取出一个
+      with_random_choice:
+        "{{ file_value }}"
+
+    - name: sequence  测试
+      debug:
+        msg: "{{ item }}"
+      with_sequence: start=4 end=16 stride=2

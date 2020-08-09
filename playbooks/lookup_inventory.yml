@@ -1,0 +1,11 @@
+- hosts: localhost
+  tasks:
+    # 显示 inventory 中所有主机
+    - debug:
+        msg: "{{ item }}"
+      loop: "{{ groups['all'] }}"
+
+    # 显示所有主机当前任务
+    - debug:
+        msg: "{{ item }}"
+      loop: "{{ ansible_play_batch }}"

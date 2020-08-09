@@ -1,0 +1,7 @@
+# 当 /etc/hosts 文件不存在时，执行echo `date` >> /tmp/ansible.log
+- hosts: localhost
+  tasks:
+    - name: 测试 shell
+      shell: echo `date` >> /tmp/ansible.log
+      args:
+        creates: /etc/hosts

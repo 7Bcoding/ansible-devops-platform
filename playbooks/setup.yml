@@ -1,0 +1,8 @@
+- hosts: localhost
+  tasks:
+    - name: 测试setup
+      setup:
+
+    - name: 测试 setup 内容
+      debug:
+        msg: '时间：{{ansible_date_time.date}}，地址：{{ansible_all_ipv4_addresses}}，系统：{{ansible_lsb.description}}'

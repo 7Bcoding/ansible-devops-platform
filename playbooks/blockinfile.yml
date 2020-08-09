@@ -1,0 +1,11 @@
+- hosts: localhost
+  tasks:
+    - name: 测试 blockinfile
+      blockinfile:
+        path: /tmp/inventory
+        create: yes
+        marker: '### {mark} LIST BLOCK ###'
+        block: |
+            localhost ansible_connection=local
+            192.168.1.1
+            192.168.1.2

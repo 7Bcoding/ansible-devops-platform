@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+    - shell: /usr/bin/fail
+      register: result
+      until: result.stdout.find("success") != -1
+      # 最多重试 5 次
+      retries: 5
+      # 重试间隔 3 秒
+      delay: 3

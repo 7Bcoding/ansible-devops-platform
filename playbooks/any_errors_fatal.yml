@@ -1,0 +1,6 @@
+# 执行过程中无论任何错误，进程会立即退出
+- hosts: localhost
+  any_errors_fatal: true
+  tasks:
+    - name: 任务必须全部执行成功
+      command: echo '测试 any_errors_fatal'

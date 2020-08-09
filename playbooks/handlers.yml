@@ -1,0 +1,15 @@
+# handlers 一般用于配置文件修改后，通知修改服务重启的操作
+# 这里我们只做语法实例
+- hosts: localhost
+  tasks:
+    - name: 推送某服务配置文件
+      command: date
+      # 推送配置文件，如果文件不一致，返回结果状态为 changed，与 command 相同
+      # notify 通知执行对应操作
+      notify:
+        - notify_tasks
+
+  handlers:
+    - name: notify_tasks
+      debug:
+        msg: 'handlers 任务测试'

@@ -1,0 +1,11 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Mon Sep  9 16:57:51 2019] ***
+compiled with version: 5.4.0 20160609 on 14 August 2019 02:05:08
+os: Linux-4.15.0-48-generic #51-Ubuntu SMP Wed Apr 3 08:28:49 UTC 2019
+nodename: user-166146.weave.local
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/project/ansible_ui
+writing pidfile to tmp/uwsgi.pid
+open("tmp/uwsgi.pid"): No such file or directory [core/utils.c line 3616]

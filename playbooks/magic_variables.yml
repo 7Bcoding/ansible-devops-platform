@@ -1,0 +1,17 @@
+- hosts: localhost
+  tasks:
+    - name: hostvars 变量
+      debug:
+        msg: '{{ hostvars }}'
+
+    - name: groups 变量
+      debug:
+        msg: '{{ groups }}'
+
+    - name: group_names 变量
+      debug:
+        msg: '{{ group_names }}'
+
+    - name: inventory_hostname 变量
+      debug:
+        msg: '{{ inventory_hostname }}'

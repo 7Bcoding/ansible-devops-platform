@@ -1,0 +1,15 @@
+- hosts: localhost
+
+  handlers:
+    - name:
+      debug: msg="restart the first service"
+      listen: "restart some services"
+    - name:
+      debug: msg="restart the second service"
+      listen: "restart some services"
+
+  tasks:
+    - name: restart everything
+      command: echo "this task will restart the web services"
+      # 关联所有 listen 名称为 restart some services 的任务
+      notify: "restart some services"

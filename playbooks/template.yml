@@ -1,0 +1,9 @@
+- hosts: localhost
+  vars:
+    - nginx_port: 8080
+    - proxy_address: 'http://127.0.0.1:8000'
+  tasks:
+    - name: 参数 template 模块
+      template:
+        src: nginx_vhost.j2
+        dest: /tmp/nginx_vhost.conf

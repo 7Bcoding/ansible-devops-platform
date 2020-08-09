@@ -1,0 +1,14 @@
+2019-09-09 16:55:59,688 WARNING log_response /home/project/py3/lib/python3.5/site-packages/django/utils/log.py:228 Not Found: /ansible/push_task
+2019-09-09 16:56:01,413 WARNING log_response /home/project/py3/lib/python3.5/site-packages/django/utils/log.py:228 Not Found: /ansible/get_playbooks
+2019-09-09 16:56:02,233 WARNING log_response /home/project/py3/lib/python3.5/site-packages/django/utils/log.py:228 Not Found: /ansible/get_hosts
+2019-09-09 16:56:03,199 WARNING log_response /home/project/py3/lib/python3.5/site-packages/django/utils/log.py:228 Forbidden (Permission denied): /ansible/dashboard/
+Traceback (most recent call last):
+  File "/home/project/py3/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/project/py3/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/project/py3/lib/python3.5/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./public/views.py", line 49, in dashboard
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied

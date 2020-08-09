@@ -1,0 +1,15 @@
+- hosts: localhost
+  tasks:
+    - command: /bin/false
+      register: result
+      ignore_errors: True
+
+    - name:
+      debug: msg="执行失败"
+      when: result is failed
+
+    - debug: msg="执行成功"
+      when: result is succeeded
+
+    - debug: msg="任务跳过"
+      when: result is skipped

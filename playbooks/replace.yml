@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+    - name: 测试 replace
+      replace:
+        path: /tmp/nginx_vhost.conf
+        replace: '\1servier_name www.xyz.com;'
+        regexp: '(\s+)servier_name www.abc.com;'

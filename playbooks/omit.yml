@@ -1,0 +1,12 @@
+
+- hosts: localhost
+  tasks:
+    - name: 默认参数测试
+      file:
+        dest: "{{ item.path }}"
+        state: touch
+        mode: "{{ item.mode | default(omit) }}"
+      loop:
+        - path: /tmp/foo
+        - path: /tmp/abc
+          mode: "0444"

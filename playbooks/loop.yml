@@ -1,0 +1,17 @@
+- hosts: localhost
+  vars:
+    - test_list: [0, 2, 4, 6, 8, 10]
+  tasks:
+    - command: echo {{ item }}
+      loop: "{{ test_list }}"
+      when: item > 5
+
+    # 提供默认值
+    - command: echo {{ item }}
+      loop: "{{ a_list|default([]) }}"
+      when: item >5
+
+    # 循环中实验 dict
+    - command: echo {{ item.key }}
+      loop: "{{ query('dict', a_dict|default({})) }}"
+      when: item.value > 5

@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+    - include_tasks: tasks.yml
+    - import_tasks: tasks.yml
+
+# 导入一个 playbook，内容需包含 '- hosts:'
+- import_playbook: omit.yml

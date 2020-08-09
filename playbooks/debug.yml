@@ -1,0 +1,6 @@
+- hosts: test
+  vars:
+    - content: 'var from playbook'
+  tasks:
+    - debug:
+        msg: "{{ content }}"

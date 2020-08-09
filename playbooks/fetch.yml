@@ -1,0 +1,7 @@
+- hosts: localhost
+  tasks:
+    - name: 测试 fetch
+      fetch:
+        dest: /tmp/
+        src: /etc/services
+        flat: no

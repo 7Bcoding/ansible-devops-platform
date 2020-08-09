@@ -1,0 +1,8 @@
+# 我们测试环境只有本机，大家可以在主机环境测试
+- hosts: localhost
+  tasks:
+    - command: hostname
+      # 任务只执行一次
+      run_once: true
+      # 委托 localhost 主机执行
+      delegate_to: localhost

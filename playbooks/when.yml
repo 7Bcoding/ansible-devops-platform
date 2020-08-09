@@ -1,0 +1,6 @@
+- hosts: localhost
+  tasks:
+    - name: 参数 when
+      debug:
+        msg: "当前系统：{{ ansible_facts['distribution'] }} - {{ ansible_facts['distribution_major_version'] }}"
+      when: ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "16"

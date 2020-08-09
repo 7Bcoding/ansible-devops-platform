@@ -1,0 +1,584 @@
+2019-09-09 12:31:06,512 p=4497 u=shiyanlou |  localhost | CHANGED | rc=0 >>
+shiyanlou
+
+2019-09-09 12:31:06,522 p=4497 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 2 seconds
+2019-09-09 12:32:58,847 p=4578 u=shiyanlou |  localhost | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2019-09-09 12:32:58,877 p=4578 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 0 seconds
+2019-09-09 13:09:17,367 p=5331 u=shiyanlou |  PLAY [localhost] ****************************************************************************
+2019-09-09 13:09:17,438 p=5331 u=shiyanlou |  TASK [include_tasks] ************************************************************************
+2019-09-09 13:09:17,520 p=5331 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/tasks.yml for localhost
+2019-09-09 13:09:17,578 p=5331 u=shiyanlou |  TASK [debug] ********************************************************************************
+2019-09-09 13:09:17,648 p=5331 u=shiyanlou |  ok: [localhost] => {
+    "msg": "可复用的任务测试"
+}
+2019-09-09 13:09:17,700 p=5331 u=shiyanlou |  TASK [debug] ********************************************************************************
+2019-09-09 13:09:17,778 p=5331 u=shiyanlou |  ok: [localhost] => {
+    "msg": "可复用的任务测试"
+}
+2019-09-09 13:09:17,799 p=5331 u=shiyanlou |  PLAY [localhost] ****************************************************************************
+2019-09-09 13:09:17,848 p=5331 u=shiyanlou |  TASK [默认参数测试] *******************************************************************************
+2019-09-09 13:09:18,428 p=5331 u=shiyanlou |  changed: [localhost] => (item={'path': '/tmp/foo'})
+2019-09-09 13:09:18,660 p=5331 u=shiyanlou |  changed: [localhost] => (item={'mode': '0444', 'path': '/tmp/abc'})
+2019-09-09 13:09:18,672 p=5331 u=shiyanlou |  PLAY RECAP **********************************************************************************
+2019-09-09 13:09:18,672 p=5331 u=shiyanlou |  localhost                  : ok=4    changed=1    unreachable=0    failed=0   
+2019-09-09 13:09:18,672 p=5331 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 1 seconds
+2019-09-09 13:11:48,668 p=5445 u=shiyanlou |  PLAY [localhost] ****************************************************************************
+2019-09-09 13:11:48,740 p=5445 u=shiyanlou |  TASK [nginx : 安装 nginx] *********************************************************************
+2019-09-09 13:11:48,848 p=5445 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:11:48,901 p=5445 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *****************************************************************
+2019-09-09 13:11:48,948 p=5445 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:11:48,948 p=5445 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule
+object at 0x7fbfe4fe6438>): name 'host' is not defined
+
+2019-09-09 13:11:49,020 p=5445 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *****************************************************************
+2019-09-09 13:11:52,763 p=5445 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:11:52,827 p=5445 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] ******************************************************************
+2019-09-09 13:11:53,287 p=5445 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": true, "cmd": "service nginx status", "delta": "0:00:00.156460", "end": "2019-09-09 13:11:53.244194", "msg": "non-zero return code", "rc": 1, "start": "2019-09-09 13:11:53.087734", "stderr": "", "stderr_lines": [], "stdout": " * nginx is not running", "stdout_lines": [" * nginx is not running"]}
+2019-09-09 13:11:53,288 p=5445 u=shiyanlou |  ...ignoring
+2019-09-09 13:11:53,346 p=5445 u=shiyanlou |  TASK [nginx : debug] ************************************************************************
+2019-09-09 13:11:53,424 p=5445 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is not running"
+}
+2019-09-09 13:11:53,480 p=5445 u=shiyanlou |  TASK [nginx : 启动 nginx] *********************************************************************
+2019-09-09 13:11:54,207 p=5445 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:11:54,267 p=5445 u=shiyanlou |  TASK [nginx : debug] ************************************************************************
+2019-09-09 13:11:54,359 p=5445 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * Starting nginx nginx\n   ...done."
+}
+2019-09-09 13:11:54,367 p=5445 u=shiyanlou |  PLAY RECAP **********************************************************************************
+2019-09-09 13:11:54,367 p=5445 u=shiyanlou |  localhost                  : ok=6    changed=3    unreachable=0    failed=0   
+2019-09-09 13:11:54,367 p=5445 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 5 seconds
+2019-09-09 13:17:35,400 p=5713 u=shiyanlou |  PLAY [localhost] ****************************************************************************
+2019-09-09 13:17:35,483 p=5713 u=shiyanlou |  TASK [nginx : 安装 nginx] *********************************************************************
+2019-09-09 13:17:35,608 p=5713 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:17:35,667 p=5713 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *****************************************************************
+2019-09-09 13:17:35,704 p=5713 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:17:35,704 p=5713 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule
+object at 0x7f734af04a58>): name 'host' is not defined
+
+2019-09-09 13:17:35,767 p=5713 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *****************************************************************
+2019-09-09 13:17:39,434 p=5713 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:17:39,499 p=5713 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] ******************************************************************
+2019-09-09 13:17:39,883 p=5713 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:17:39,961 p=5713 u=shiyanlou |  TASK [nginx : debug] ************************************************************************
+2019-09-09 13:17:40,078 p=5713 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:17:40,141 p=5713 u=shiyanlou |  TASK [nginx : 启动 nginx] *********************************************************************
+2019-09-09 13:17:40,182 p=5713 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:17:40,241 p=5713 u=shiyanlou |  TASK [nginx : debug] ************************************************************************
+2019-09-09 13:17:40,357 p=5713 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:17:40,419 p=5713 u=shiyanlou |  TASK [mysql : debug] ************************************************************************
+2019-09-09 13:17:40,503 p=5713 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:17:40,565 p=5713 u=shiyanlou |  TASK [mysql : 安装 MySQL] *********************************************************************
+2019-09-09 13:17:40,608 p=5713 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:17:40,661 p=5713 u=shiyanlou |  TASK [mysql : 安装 MySQL] *********************************************************************
+2019-09-09 13:17:40,713 p=5713 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:17:40,767 p=5713 u=shiyanlou |  TASK [mysql : 启动 MySQL] *********************************************************************
+2019-09-09 13:17:43,489 p=5713 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:17:43,545 p=5713 u=shiyanlou |  TASK [php : debug] **************************************************************************
+2019-09-09 13:17:43,623 p=5713 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:17:43,679 p=5713 u=shiyanlou |  TASK [php : 安装 PHP] *************************************************************************
+2019-09-09 13:17:43,723 p=5713 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:17:43,776 p=5713 u=shiyanlou |  TASK [php : 安装 PHP] *************************************************************************
+2019-09-09 13:17:47,137 p=5713 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:17:47,198 p=5713 u=shiyanlou |  TASK [php : 启动 php] *************************************************************************
+2019-09-09 13:17:48,333 p=5713 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:17:48,396 p=5713 u=shiyanlou |  TASK [php : 启动 php] *************************************************************************
+2019-09-09 13:17:48,433 p=5713 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:17:48,498 p=5713 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ********************************************************
+2019-09-09 13:17:49,159 p=5713 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:17:49,172 p=5713 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:17:49,172 p=5713 u=shiyanlou |  PLAY RECAP **********************************************************************************
+2019-09-09 13:17:49,172 p=5713 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:17:49,172 p=5713 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 13 seconds
+2019-09-09 13:18:26,358 p=6444 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:18:26,429 p=6444 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:18:26,540 p=6444 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:18:26,598 p=6444 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:18:26,644 p=6444 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:18:26,645 p=6444 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7ff70f994a58>): name 'host' is not defined
+
+2019-09-09 13:18:26,699 p=6444 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:18:30,469 p=6444 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:18:30,529 p=6444 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:18:30,922 p=6444 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:18:30,981 p=6444 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:18:31,068 p=6444 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:18:31,127 p=6444 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:18:31,167 p=6444 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:18:31,221 p=6444 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:18:31,320 p=6444 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:18:31,381 p=6444 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:18:31,459 p=6444 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:18:31,518 p=6444 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:18:31,568 p=6444 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:18:31,620 p=6444 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:18:31,677 p=6444 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:18:31,729 p=6444 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:18:32,227 p=6444 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:18:32,281 p=6444 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:18:32,359 p=6444 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:18:32,419 p=6444 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:18:32,469 p=6444 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:18:32,529 p=6444 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:18:35,824 p=6444 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:18:35,881 p=6444 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:18:36,397 p=6444 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:18:36,449 p=6444 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:18:36,498 p=6444 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:18:36,549 p=6444 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:18:37,189 p=6444 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:18:37,202 p=6444 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:18:37,203 p=6444 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:18:37,203 p=6444 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:18:37,203 p=6444 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 10 seconds
+2019-09-09 13:19:04,649 p=6730 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:19:04,728 p=6730 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:19:04,843 p=6730 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:19:04,900 p=6730 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:19:04,948 p=6730 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:19:04,949 p=6730 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7f5d099df9e8>): name 'host' is not defined
+
+2019-09-09 13:19:05,008 p=6730 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:19:08,964 p=6730 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:19:09,033 p=6730 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:19:09,442 p=6730 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:19:09,497 p=6730 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:19:09,584 p=6730 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:19:09,639 p=6730 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:19:09,679 p=6730 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:19:09,777 p=6730 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:19:09,862 p=6730 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:19:09,918 p=6730 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:19:10,003 p=6730 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:19:10,062 p=6730 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:19:10,108 p=6730 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:19:10,172 p=6730 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:19:10,222 p=6730 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:19:10,317 p=6730 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:19:10,869 p=6730 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:19:10,977 p=6730 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:19:11,048 p=6730 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:19:11,108 p=6730 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:19:11,153 p=6730 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:19:11,207 p=6730 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:19:14,771 p=6730 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:19:14,828 p=6730 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:19:15,368 p=6730 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:19:15,437 p=6730 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:19:15,479 p=6730 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:19:15,537 p=6730 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:19:16,179 p=6730 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:19:16,192 p=6730 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:19:16,193 p=6730 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:19:16,193 p=6730 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:19:16,193 p=6730 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 11 seconds
+2019-09-09 13:20:22,578 p=7068 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:20:22,664 p=7068 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:20:22,798 p=7068 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:20:22,860 p=7068 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:20:22,914 p=7068 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:20:22,915 p=7068 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7f96f21d5438>): name 'host' is not defined
+
+2019-09-09 13:20:22,983 p=7068 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:20:26,743 p=7068 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:20:26,807 p=7068 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:20:27,187 p=7068 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:20:27,241 p=7068 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:20:27,328 p=7068 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:20:27,381 p=7068 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:20:27,423 p=7068 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:20:27,478 p=7068 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:20:27,563 p=7068 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:20:27,622 p=7068 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:20:27,688 p=7068 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:20:27,741 p=7068 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:20:27,783 p=7068 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:20:27,839 p=7068 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:20:27,887 p=7068 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:20:27,940 p=7068 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:20:28,412 p=7068 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:20:28,477 p=7068 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:20:28,563 p=7068 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:20:28,625 p=7068 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:20:28,674 p=7068 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:20:28,743 p=7068 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:20:32,810 p=7068 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:20:32,873 p=7068 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:20:33,388 p=7068 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:20:33,447 p=7068 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:20:33,494 p=7068 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:20:33,553 p=7068 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:20:34,224 p=7068 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:20:34,237 p=7068 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:20:34,238 p=7068 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:20:34,238 p=7068 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:20:34,238 p=7068 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 11 seconds
+2019-09-09 13:21:57,118 p=7380 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:21:57,198 p=7380 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:21:57,308 p=7380 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:21:57,367 p=7380 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:21:57,408 p=7380 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:21:57,408 p=7380 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7f5c2967aa58>): name 'host' is not defined
+
+2019-09-09 13:21:57,459 p=7380 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:22:01,264 p=7380 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:22:01,320 p=7380 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:22:01,711 p=7380 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:22:01,778 p=7380 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:22:01,863 p=7380 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:22:01,919 p=7380 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:22:01,963 p=7380 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:22:02,027 p=7380 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:22:02,119 p=7380 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:22:02,179 p=7380 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:22:02,254 p=7380 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:22:02,317 p=7380 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:22:02,359 p=7380 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:22:02,419 p=7380 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:22:02,474 p=7380 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:22:02,525 p=7380 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:22:03,005 p=7380 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:22:03,061 p=7380 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:22:03,144 p=7380 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:22:03,199 p=7380 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:22:03,244 p=7380 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:22:03,298 p=7380 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:22:06,564 p=7380 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:22:06,621 p=7380 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:22:07,144 p=7380 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:22:07,200 p=7380 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:22:07,248 p=7380 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:22:07,300 p=7380 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:22:07,949 p=7380 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:22:07,967 p=7380 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:22:07,967 p=7380 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:22:07,967 p=7380 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:22:07,968 p=7380 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 10 seconds
+2019-09-09 13:24:37,101 p=7706 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:24:37,180 p=7706 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:24:37,292 p=7706 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:24:37,347 p=7706 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:24:37,385 p=7706 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:24:37,387 p=7706 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7f9e31c1ea58>): name 'host' is not defined
+
+2019-09-09 13:24:37,447 p=7706 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:24:40,988 p=7706 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:24:41,047 p=7706 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:24:41,404 p=7706 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:24:41,461 p=7706 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:24:41,548 p=7706 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:24:41,601 p=7706 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:24:41,643 p=7706 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:24:41,699 p=7706 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:24:41,781 p=7706 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:24:41,838 p=7706 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:24:41,905 p=7706 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:24:41,964 p=7706 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:24:42,003 p=7706 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:24:42,057 p=7706 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:24:42,103 p=7706 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:24:42,158 p=7706 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:24:42,627 p=7706 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:24:42,698 p=7706 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:24:42,768 p=7706 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:24:42,825 p=7706 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:24:42,872 p=7706 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:24:42,921 p=7706 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:24:46,168 p=7706 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:24:46,228 p=7706 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:24:46,747 p=7706 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:24:46,807 p=7706 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:24:46,848 p=7706 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:24:46,905 p=7706 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:24:47,558 p=7706 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:24:47,572 p=7706 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:24:47,572 p=7706 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:24:47,573 p=7706 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:24:47,573 p=7706 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 10 seconds
+2019-09-09 13:26:39,888 p=8033 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:26:39,973 p=8033 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:26:40,098 p=8033 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:26:40,157 p=8033 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:26:40,203 p=8033 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:26:40,204 p=8033 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7f47aedbc9b0>): name 'host' is not defined
+
+2019-09-09 13:26:40,264 p=8033 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:26:43,843 p=8033 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:26:43,907 p=8033 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:26:44,277 p=8033 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:26:44,328 p=8033 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:26:44,414 p=8033 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:26:44,482 p=8033 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:26:44,524 p=8033 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:26:44,577 p=8033 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:26:44,659 p=8033 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:26:44,718 p=8033 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:26:44,788 p=8033 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:26:44,841 p=8033 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:26:44,888 p=8033 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:26:44,940 p=8033 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:26:44,993 p=8033 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:26:45,048 p=8033 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:26:45,540 p=8033 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:26:45,613 p=8033 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:26:45,683 p=8033 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:26:45,752 p=8033 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:26:45,818 p=8033 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:26:45,881 p=8033 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:26:49,239 p=8033 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:26:49,299 p=8033 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:26:49,834 p=8033 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:26:49,889 p=8033 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:26:49,935 p=8033 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:26:49,998 p=8033 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:26:50,663 p=8033 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:26:50,668 p=8033 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:26:50,668 p=8033 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:26:50,669 p=8033 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:26:50,669 p=8033 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 10 seconds
+2019-09-09 13:33:26,287 p=8502 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:33:26,360 p=8502 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:33:26,468 p=8502 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:33:26,528 p=8502 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:33:26,577 p=8502 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:33:26,577 p=8502 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7f2cabd629b0>): name 'host' is not defined
+
+2019-09-09 13:33:26,637 p=8502 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:33:30,222 p=8502 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:33:30,279 p=8502 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:33:30,647 p=8502 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:33:30,708 p=8502 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:33:30,797 p=8502 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:33:30,847 p=8502 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:33:30,883 p=8502 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:33:30,947 p=8502 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:33:31,023 p=8502 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:33:31,087 p=8502 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:33:31,157 p=8502 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:33:31,209 p=8502 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:33:31,254 p=8502 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:33:31,305 p=8502 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:33:31,348 p=8502 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:33:31,404 p=8502 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:33:31,870 p=8502 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:33:31,929 p=8502 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:33:32,013 p=8502 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:33:32,061 p=8502 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:33:32,112 p=8502 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:33:32,161 p=8502 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:33:35,573 p=8502 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:33:35,638 p=8502 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:33:36,229 p=8502 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:33:36,287 p=8502 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:33:36,341 p=8502 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:33:36,398 p=8502 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:33:37,084 p=8502 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:33:37,097 p=8502 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:33:37,098 p=8502 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:33:37,098 p=8502 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:33:37,098 p=8502 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 10 seconds
+2019-09-09 13:34:18,141 p=8924 u=shiyanlou |  PLAY [localhost] ************************************************************************************
+2019-09-09 13:34:18,229 p=8924 u=shiyanlou |  TASK [nginx : 安装 nginx] *****************************************************************************
+2019-09-09 13:34:18,338 p=8924 u=shiyanlou |  included: /home/project/ansible_ui/playbooks/roles/nginx/tasks/install.yml for localhost
+2019-09-09 13:34:18,389 p=8924 u=shiyanlou |  TASK [nginx : yum 安装 Nginx] *************************************************************************
+2019-09-09 13:34:18,438 p=8924 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:34:18,438 p=8924 u=shiyanlou |   [WARNING]: Failure using method (v2_runner_on_skipped) in callback plugin
+(<ansible.plugins.callback./home/project/ansible_ui/callback_plugins/redis2.CallbackModule object at
+0x7f5278ffe9b0>): name 'host' is not defined
+
+2019-09-09 13:34:18,497 p=8924 u=shiyanlou |  TASK [nginx : apt 安装 nginx] *************************************************************************
+2019-09-09 13:34:22,028 p=8924 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:34:22,081 p=8924 u=shiyanlou |  TASK [nginx : 查看 nginx 状态] **************************************************************************
+2019-09-09 13:34:22,440 p=8924 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:34:22,500 p=8924 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:34:22,584 p=8924 u=shiyanlou |  ok: [localhost] => {
+    "msg": " * nginx is running"
+}
+2019-09-09 13:34:22,639 p=8924 u=shiyanlou |  TASK [nginx : 启动 nginx] *****************************************************************************
+2019-09-09 13:34:22,677 p=8924 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:34:22,737 p=8924 u=shiyanlou |  TASK [nginx : debug] ********************************************************************************
+2019-09-09 13:34:22,822 p=8924 u=shiyanlou |  ok: [localhost] => {
+    "msg": ""
+}
+2019-09-09 13:34:22,883 p=8924 u=shiyanlou |  TASK [mysql : debug] ********************************************************************************
+2019-09-09 13:34:22,983 p=8924 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:34:23,038 p=8924 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:34:23,078 p=8924 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:34:23,132 p=8924 u=shiyanlou |  TASK [mysql : 安装 MySQL] *****************************************************************************
+2019-09-09 13:34:23,178 p=8924 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:34:23,228 p=8924 u=shiyanlou |  TASK [mysql : 启动 MySQL] *****************************************************************************
+2019-09-09 13:34:24,916 p=8924 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:34:24,978 p=8924 u=shiyanlou |  TASK [php : debug] **********************************************************************************
+2019-09-09 13:34:25,059 p=8924 u=shiyanlou |  ok: [localhost] => {
+    "msg": false
+}
+2019-09-09 13:34:25,118 p=8924 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:34:25,163 p=8924 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:34:25,218 p=8924 u=shiyanlou |  TASK [php : 安装 PHP] *********************************************************************************
+2019-09-09 13:34:28,572 p=8924 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:34:28,633 p=8924 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:34:29,149 p=8924 u=shiyanlou |  changed: [localhost]
+2019-09-09 13:34:29,213 p=8924 u=shiyanlou |  TASK [php : 启动 php] *********************************************************************************
+2019-09-09 13:34:29,254 p=8924 u=shiyanlou |  skipping: [localhost]
+2019-09-09 13:34:29,309 p=8924 u=shiyanlou |  TASK [wordpress : 新建 wordpress 的数据库] ****************************************************************
+2019-09-09 13:34:29,959 p=8924 u=shiyanlou |  fatal: [localhost]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}
+2019-09-09 13:34:29,977 p=8924 u=shiyanlou |  	to retry, use: --limit @/home/shiyanlou/.ansible-retry/wordpress.retry
+
+2019-09-09 13:34:29,977 p=8924 u=shiyanlou |  PLAY RECAP ******************************************************************************************
+2019-09-09 13:34:29,977 p=8924 u=shiyanlou |  localhost                  : ok=10   changed=5    unreachable=0    failed=1   
+2019-09-09 13:34:29,978 p=8924 u=shiyanlou |  Playbook run took 0 days, 0 hours, 0 minutes, 11 seconds
+2019-09-09 16:22:11,319 django.request Internal Server Error: /ansible/get_Ansible_Tasks_Detail/1/
+Traceback (most recent call last):
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/defaulttags.py", line 1020, in find_library
+    return parser.libraries[name]
+KeyError: 'format'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/project/py3/lib/python3.5/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/project/py3/lib/python3.5/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/project/py3/lib/python3.5/site-packages/django/core/handlers/base.py", line 154, in _get_response
+    response = response.render()
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/defaulttags.py", line 1077, in load
+    lib = find_library(parser, name)
+  File "/home/project/py3/lib/python3.5/site-packages/django/template/defaulttags.py", line 1024, in find_library
+    name, "\n".join(sorted(parser.libraries)),
+django.template.exceptions.TemplateSyntaxError: 'format' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_static
+admin_urls
+cache
+i18n
+l10n
+log
+static
+staticfiles
+tz
+2019-09-09 16:39:56,037 django.request Not Found: /ansible/push_task

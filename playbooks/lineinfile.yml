@@ -1,0 +1,19 @@
+- hosts: localhost
+  tasks:
+    - name: 在 /tmp/nginx_vhost.conf 文件的包含 listen 行下面添加 servier_name www.abc.com;
+      lineinfile:
+        path: /tmp/nginx_vhost.conf
+        line: '        servier_name www.abc.com;'
+        insertafter: 'listen'
+
+    - name: 修改 nginx 配置文件
+      lineinfile:
+        path: /tmp/nginx_vhost.conf
+        regexp: 'listen'
+        line: '        listen       9090;'
+
+    - name: 删除包含 error_page 的行
+      lineinfile:
+        path: /tmp/nginx_vhost.conf
+        regexp: 'error_page'
+        state: absent

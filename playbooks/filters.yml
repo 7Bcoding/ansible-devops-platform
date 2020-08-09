@@ -1,0 +1,17 @@
+- hosts: localhost
+  tasks:
+    - shell: cat loop.yml
+      register: result
+
+    # 设置变量
+    - set_fact:
+        myvar: "{{ result.stdout | from_yaml }}"
+
+    - debug:
+        msg: "数据：{{ item.key }} - {{ item.value }}"
+      with_items:
+         "{{ lookup('dict', myvar[0]) }}"
+
+    - debug:
+        # 如果 undefined 未定义，将使用一个默认值
+        msg: "{{ undefined|default('set_a_var') }}"

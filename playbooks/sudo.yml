@@ -1,0 +1,9 @@
+- hosts: localhost
+  become: yes
+  become_method: 'sudo'
+  tasks:
+    - shell: whoami
+      register: s
+
+    - debug:
+        msg: '{{ s.stdout }}'

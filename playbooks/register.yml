@@ -1,0 +1,12 @@
+# register 对结果进行处理
+- hosts: localhost
+  tasks:
+    - command: cat /tmp/pm.txt
+      # 执行结果注册为变量 pm
+      register: pm
+    # 输出每行 == 之前的部分
+    - debug:
+        msg: "{{ item.split('==')[0] }}"
+      # 获取结果的每一行
+      loop: "{{ pm.stdout_lines }}"
+      when: pm is succeeded

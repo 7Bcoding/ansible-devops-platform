@@ -1,0 +1,10 @@
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  tasks:
+    - debug:
+        msg: "执行导入 role 前的操作"
+    - include_role:
+        name: nginx
+      vars:
+        - init_nginx: True
