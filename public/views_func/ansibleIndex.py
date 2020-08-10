@@ -11,7 +11,8 @@ from public.models import *
 
 class AnsibleOpt:
     @staticmethod
-    def ansible_playbook(groupName, playbook, user=None, extra_vars={}, **kw):  # 通过调用Celery任务函数ansiblePlayBook，调用AnsiblePlaybookApi
+    def ansible_playbook(groupName, playbook, user=None, extra_vars={}, **kw):
+        # 通过调用Celery任务函数ansiblePlayBook，调用AnsiblePlaybookApi
         tid = "AnsibleApiPlaybook-%s-%s" % (''.join(random.sample(string.ascii_letters + string.digits, 8)),
                                             datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
         if not extra_vars.get('groupName'):
