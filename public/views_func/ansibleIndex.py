@@ -11,7 +11,7 @@ from public.models import *
 
 class AnsibleOpt:
     @staticmethod
-    def ansible_playbook(groupName, playbook, user=None, extra_vars={}, **kw):
+    def ansible_playbook(groupName, playbook, user=None, extra_vars={}, **kw):  # 通过调用Celery任务函数ansiblePlayBook，调用AnsiblePlaybookApi
         tid = "AnsibleApiPlaybook-%s-%s" % (''.join(random.sample(string.ascii_letters + string.digits, 8)),
                                             datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
         if not extra_vars.get('groupName'):
@@ -37,7 +37,7 @@ class AnsibleOpt:
                 "pk": at.pk}
 
     @staticmethod
-    def ansible_opt(groupName, tasks):
+    def ansible_opt(groupName, tasks):           # 通过调用Celery任务函数ansibleExec，调用AnsibleApi
         tid = "AnsibleApiOpt-%s" % datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         celeryTask = ansibleExec.delay(tid, groupName, tasks)
         return {'tid': tid, 'celeryTask': celeryTask.task_id, "groupName": groupName}
