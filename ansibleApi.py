@@ -107,7 +107,7 @@ class ResultCallback(CallbackBase):
         pass
 
 
-class MyTaskQueueManager(TaskQueueManager):
+class MyTaskQueueManager(TaskQueueManager):  # 不再使用TaskQueueManager，使用自定义的MyTaskQueueManager
     def load_callbacks(self):  # 截断callback，只保留 api 自定义
         pass
 
