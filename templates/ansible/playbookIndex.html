@@ -44,7 +44,7 @@
     $('#push').click(function(){
         if($("select[name='playbook'] option:selected")[0].value=="None"){
             alert('必须选择一个操作组')
-            return false    // 阻止提交
+            return false     // 阻止提交
         }else if($('input[type="checkbox"]')[0].checked===false){
             alert('请打开锁')
             return false
