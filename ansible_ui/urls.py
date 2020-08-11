@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import RedirectView
 from public.views_func.account import myLogin, myLogout
+
 urlpatterns = [
     # 所有 admin 开头的请求，交给 admin.site.urls 处理，django 自带系统，无需修改
     path('admin/', admin.site.urls),
